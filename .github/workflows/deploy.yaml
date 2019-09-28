@@ -1,0 +1,14 @@
+name: Continuous Deployment of Lambda
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-lambda:
+    name: Deploy Lambda
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test AWS CLI
+        #uses: actions/aws/cli@master
+        run: aws --version
