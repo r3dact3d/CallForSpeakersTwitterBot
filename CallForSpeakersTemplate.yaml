@@ -29,10 +29,6 @@ Resources:
               - logs:CreateLogStream
               - logs:PutLogEvents
             Resource: "*"
-          - Resource: !Ref AssumeRoleArn
-            Action:
-            - "sts:AssumeRole"
-            Effect: Allow  
       Roles:
         - !Ref CFSLambdaRole
 
@@ -40,23 +36,29 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Description: Call For Speakers Twitter Bot 
-      Handler: lambda_handler
+      Handler: CFSTwitterBot.lambda_handler
       MemorySize: 128
       Role: !GetAtt CFSLambdaRole.Arn
+      Environment:
+        Variables:
+          ACCESS_TOKEN: /twitter-event-source/access_token
+          ACCESS_TOKEN_SECRET: /twitter-event-source/access_token_secret
+          CONSUMER_KEY: /twitter-event-source/consumer_key
+          CONSUME_SECRET: /twitter-event-source/consumer_secret
       Runtime: python2.7          
       Timeout: 300
       CodeUri: .
 
     CFSEvent:
-        Type: "AWS::Events::Rule"
-        Properties: 
-          Description: Rule for Call For Speakers Twitter Bot
-          ScheduleExpression: "rate(6 hour)"
-          Name: CFSTwitterBotRule
-          State: ENABLED
-          Targets:
-            - Arn: !GetAtt CFSLambda.Arn
-              Id: CFSRule
+      Type: "AWS::Events::Rule"
+      Properties: 
+        Description: Rule for Call For Speakers Twitter Bot
+        ScheduleExpression: "rate(6 hour)"
+        Name: CFSTwitterBotRule
+        State: ENABLED
+        Targets:
+          - Arn: !GetAtt CFSLambda.Arn
+            Id: CFSRule
 
     LambdaInvokePermission:
       Type: 'AWS::Lambda::Permission'
