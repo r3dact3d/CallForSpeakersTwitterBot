@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build CFS Twitter Bot SAM
-        uses: apex/actions/aws/sam@master
-      - name: Test SAM
         run: sam --version
+        uses: apex/actions/aws/sam@master
       - name: List working dir
         run: pwd
       - name: Package CFS Twitter Bot
