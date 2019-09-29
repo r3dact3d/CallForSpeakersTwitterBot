@@ -9,6 +9,8 @@ jobs:
     name: Deploy Lambda
     runs-on: ubuntu-latest
     steps:
-      - name: Test AWS CLI
+      - name: Print AWS CLI version
         #uses: actions/aws/cli@master
         run: aws --version
+      - name: Print working directory
+        run: ls -ltr
