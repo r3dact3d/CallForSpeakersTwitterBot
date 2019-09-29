@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print AWS CLI version
-        #uses: actions/aws/cli@master
         run: aws --version
+      - name: Print brew version
+        run: brew --version
       - name: Print SAM version
         run: sam --version
       - name: Print working directory
