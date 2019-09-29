@@ -11,16 +11,3 @@ jobs:
     steps:
       - name: Print AWS CLI version
         run: aws --version
-      - name: Install Homebrew
-        run: sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        run: test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-        run: test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-        run: test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-        run: echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-        run: brew --version
-      - name: Install AWS SAM CLI
-        run: brew tap aws/tap
-        run: brew install aws-sam-cli
-        run: sam --version
-      - name: Print working directory
-        run: ls -ltr
