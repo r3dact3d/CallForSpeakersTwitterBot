@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Get versions
+        run: python --version && pip --version
       - name: Build
         uses: apex/actions/aws/sam@master
         env:
