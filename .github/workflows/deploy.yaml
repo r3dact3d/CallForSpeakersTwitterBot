@@ -30,7 +30,7 @@ jobs:
           AWS_DEFAULT_REGION: us-west-2
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
-          args: deploy --template-file out.yaml --stack-name CallForSpeakersStack --capabilities CAPABILITY_IAM 
+          args: deploy --template-file out.yaml --stack-name CallForSpeakersStack --capabilities CAPABILITY_NAMED_IAM 
 #      - name: Package CFS Twitter Bot
 #        run: aws cloudformation package --template-file template.yaml --region us-east-1 --s3-bucket redactedtech
 #        env:
