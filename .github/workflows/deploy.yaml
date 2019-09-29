@@ -12,7 +12,7 @@ jobs:
       - name: Get versions
         run: python --version && pip --version
       - name: Build
-        uses: apex/actions/aws/sam@master
+        uses: r3dact3d/actions/aws/sam@hotfix/pip_import_error
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
