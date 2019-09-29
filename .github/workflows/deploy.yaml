@@ -11,7 +11,10 @@ jobs:
     steps:
       - name: Build CFS Twitter Bot SAM
         uses: apex/actions/aws/sam@master
-
+      - name: Test SAM
+        run: sam --version
+      - name: List working dir
+        run: pwd
       - name: Package CFS Twitter Bot
         run: aws cloudformation package --template-file CallForSpeakersTemplate.yaml --region us-east-1 --s3-bucket redactedtech
         env:
