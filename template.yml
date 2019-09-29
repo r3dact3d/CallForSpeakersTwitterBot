@@ -49,24 +49,24 @@ Resources:
       Timeout: 300
       CodeUri: .
 
-    CFSEvent:
-      Type: "AWS::Events::Rule"
-      Properties: 
-        Description: Rule for Call For Speakers Twitter Bot
-        ScheduleExpression: "rate(6 hour)"
-        Name: CFSTwitterBotRule
-        State: ENABLED
-        Targets:
-          - Arn: !GetAtt CFSLambda.Arn
-            Id: CFSRule
+  CFSEvent:
+    Type: "AWS::Events::Rule"
+    Properties: 
+      Description: Rule for Call For Speakers Twitter Bot
+      ScheduleExpression: "rate(6 hour)"
+      Name: CFSTwitterBotRule
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt CFSLambda.Arn
+          Id: CFSRule
 
-    LambdaInvokePermission:
-      Type: 'AWS::Lambda::Permission'
-      Properties:
-        FunctionName: !GetAtt CFSLambda.Arn
-        Action: 'lambda:InvokeFunction'
-        Principal: events.amazonaws.com
-        SourceArn: !GetAtt CFSEvent.Arn
+  LambdaInvokePermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      FunctionName: !GetAtt CFSLambda.Arn
+      Action: 'lambda:InvokeFunction'
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt CFSEvent.Arn
 
 #    CFSLambdaAlarm:
 #      Type: AWS::CloudWatch::Alarm
