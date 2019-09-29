@@ -53,7 +53,7 @@ Resources:
     Type: "AWS::Events::Rule"
     Properties: 
       Description: Rule for Call For Speakers Twitter Bot
-      ScheduleExpression: "rate(6 hour)"
+      ScheduleExpression: "rate(6 hours)"
       Name: CFSTwitterBotRule
       State: ENABLED
       Targets:
