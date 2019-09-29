@@ -45,7 +45,7 @@ Resources:
           ACCESS_TOKEN_SECRET: /twitter-event-source/access_token_secret
           CONSUMER_KEY: /twitter-event-source/consumer_key
           CONSUME_SECRET: /twitter-event-source/consumer_secret
-      Runtime: python3.6        
+      Runtime: python3.7      
       Timeout: 300
       CodeUri: .
 
