@@ -11,8 +11,12 @@ jobs:
     steps:
       - name: Print AWS CLI version
         run: aws --version
-      - name: Test Creds
-        run: aws s3 ls
+      - name: Print pip version
+        run: pip --version
+#      - name: Package CFS Twitter Bot
+#        run: aws cloudformation package --template-file CallForSpeakersTemplate.yaml --region us-east-1 --s3-bucket redactedtech
+#      - name: Deploy CFS Twitter Bot  
+#        run: aws cloudformation deploy --template-file CallForSpeakersTemplate.yaml --stack-name CallForSpeakersStack
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
