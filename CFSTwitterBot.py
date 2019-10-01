@@ -14,7 +14,7 @@ consumerSecret = os.getenv("CONSUMER_SECRET")
 oauthParams = [accessToken, accessTokenSecret, consumerKey, consumerSecret]
 
 ssm = boto3.client('ssm')
-result = ssm.get_parameters(Names=oauthParams, WithDecryption=True)
+result = ssm.get_parameters(Names=str(oauthParams), WithDecryption=True)
 
 if result['InvalidParameters']:
     raise RuntimeError('Could not find OAuth params containing Twitter API Keys: {}'.format(oauthParams))
