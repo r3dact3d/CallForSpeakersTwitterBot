@@ -7,10 +7,10 @@ techWords = ['redhat', 'red hat', 'kubernetes', 'ansible', 'tech', 'hacker', 'op
 query = '"call for speakers" OR "submit your talk" -filter:retweets'
 
 # Set up OAuth and integrate with API
-accessToken = os.getenv("ACCESS_TOKEN")
-accessTokenSecret = os.getenv("ACCESS_TOKEN_SECRET")
-consumerKey = os.getenv("CONSUMER_KEY")
-consumerSecret = os.getenv("CONSUMER_SECRET")
+accessToken = os.getenv('ACCESS_TOKEN')
+accessTokenSecret = os.getenv('ACCESS_TOKEN_SECRET')
+consumerKey = os.getenv('CONSUMER_KEY')
+consumerSecret = os.getenv('CONSUMER_SECRET')
 oauthParams = [accessToken, accessTokenSecret, consumerKey, consumerSecret]
 
 ssm = boto3.client('ssm')
