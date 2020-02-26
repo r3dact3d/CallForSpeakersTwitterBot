@@ -3,7 +3,7 @@ import os
 import boto3
 
 ### Global Vars
-techWords = ['redhat', 'red hat', 'kubernetes', 'ansible', 'tech', 'hacker', 'opensource', 'data science', 'pipeline', 'sysops', 'devops', 'automation']
+techWords = ['redhat', 'red hat', 'kubernetes', 'ansible', 'hacker', 'opensource', 'data science', 'pipeline', 'sysops', 'devops', 'automation']
 query = '"call for speakers" OR "submit your talk" OR "call for papers" OR "CFP" -filter:retweets'
 
 # Set up OAuth and integrate with API
